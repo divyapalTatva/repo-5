@@ -8,7 +8,7 @@ steps:
 
 steps:
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}", "."]
+  args: ["push", "gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}"]
 
 substitutions:
   _CI_NAME: gke-images
