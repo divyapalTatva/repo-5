@@ -12,9 +12,10 @@ steps:
   args:
   - run
   - --image=gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}
-  - --app=deployment-1
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
   - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
+  - --app=deployment-1
+  - --namespace=default
 
 substitutions:
   _CI_NAME: gke-images
