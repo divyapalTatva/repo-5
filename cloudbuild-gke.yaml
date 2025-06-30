@@ -11,7 +11,7 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --image=gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}:${_VERSION}
+  - --image=gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
   - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
 
