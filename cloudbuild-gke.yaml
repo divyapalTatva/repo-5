@@ -2,11 +2,9 @@ steps:
 - name: "gcr.io/cloud-builders/git"
   args: ["clone", "https://github.com/divyapalTatva/repo-5.git"]
 
-steps:
 - name: "gcr.io/cloud-builders/docker"
   args: ["build", "-t", "gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}", "."]
 
-steps:
 - name: "gcr.io/cloud-builders/docker"
   args: ["push", "gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}"]
 
