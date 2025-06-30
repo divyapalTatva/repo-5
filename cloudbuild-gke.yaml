@@ -3,14 +3,23 @@ steps:
   args: ["clone", "https://github.com/divyapalTatva/repo-5.git"]
 
 - name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}", "."]
+  args: ["build", "-t", "gcr.io/${PROJECT_ID}/${_CI_NAME}:gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}", "."]
 
 - name: "gcr.io/cloud-builders/docker"
   args: ["push", "gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}"]
 
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --image=gcr.io/${PROJECT_ID}/${_CI_NAME}:${_VERSION}:${_VERSION}
+  - --location=${_CLOUDSDK_COMPUTE_ZONE}
+  - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
+
 substitutions:
   _CI_NAME: gke-images
   _VERSION: v1.0
+  _CLOUDSDK_COMPUTE_ZONE: asia-southeast2
+  _CLOUDSDK_CONTAINER_CLUSTER: cicd-cluster-1
 
 options:
   logging: CLOUD_LOGGING_ONLY
