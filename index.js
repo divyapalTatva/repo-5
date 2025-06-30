@@ -8,7 +8,7 @@ app.use(express.json());
 
 // A simple GET route
 app.get('/', (req, res) => {
-  res.send('Hello from your simple Node.js API! V1.0 from GKE');
+  res.send('Hello from your simple Node.js API! V2.0 from GKE');
 });
 
 // Start the server
