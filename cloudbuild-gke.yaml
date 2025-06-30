@@ -13,3 +13,6 @@ steps:
 substitutions:
   _CI_NAME: gke-images
   _VERSION: v1.0
+
+options:
+  logging: CLOUD_LOGGING_ONLY
